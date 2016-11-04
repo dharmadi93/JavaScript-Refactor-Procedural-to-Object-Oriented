@@ -1,6 +1,9 @@
 
 var model = {
-
+    getDiceNumber: function(k, die) {
+        var value = Math.floor((Math.random()*6)+1)
+        $(die).text(value)
+    }
 }
 
 var view = {
@@ -16,12 +19,9 @@ var controller = {
 
 
 $(document).ready(function() {
-    $('#roller button.add').on('click', view.createDice())
+    $('#roller button.add').on('click', view.createDice)
 
     $('#roller button.roll').on('click', function() {
-        $('.die').each(function(k, die) {
-            var value = Math.floor((Math.random()*6)+1)
-            $(die).text(value)
-        })
+        $('.die').each(model.getDiceNumber)
     })
 })
