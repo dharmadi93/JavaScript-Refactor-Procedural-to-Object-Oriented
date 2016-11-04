@@ -14,14 +14,14 @@ var view = {
 }
 
 var controller = {
-
+    getDice: function() {
+        $('.die').each(model.getDiceNumber)
+    }
 }
 
 
 $(document).ready(function() {
     $('#roller button.add').on('click', view.createDice)
 
-    $('#roller button.roll').on('click', function() {
-        $('.die').each(model.getDiceNumber)
-    })
+    $('#roller button.roll').on('click', controller.getDice)
 })
